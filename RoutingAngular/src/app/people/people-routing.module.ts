@@ -6,6 +6,7 @@ import { PeopleListComponent } from './people-list/people-list.component';
 //registramos las rutas de los componentes del modulo 
 const routes : Routes = [
     {path:'people/person-details', component: PersonDetailsComponent},
+    {path:'people/:personId', component: PersonDetailsComponent},
     {path:'people/list', component: PeopleListComponent}
 ];
 
