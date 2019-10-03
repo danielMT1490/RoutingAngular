@@ -6,26 +6,26 @@
       </button>
   </li>
   <li>
-      <button class="clear">
+      <nav>
             <!--routerLink inyecta el componente-->
-              <a routerLink="/home" routerLinkActive="route-selected">Home</a>
-      </button>
+            <a routerLink="/home" routerLinkActive="route-selected-home">Home</a>
+      </nav>
   </li>
   <li>
-      <button class="clear">
-            <!--routerLinkActive incorpora un clase css en el tag al clickar-->
-              <a routerLink="/about" routerLinkActive="route-selected">About</a>
-      </button>
+      <nav>
+        <!--routerLinkActive incorpora un clase css en el tag al clickar-->
+        <a routerLink="/about" routerLinkActive="route-selected-about">About</a>
+      </nav>
   </li>
   <li>
-      <button class="clear">
-              <a href="/notFound">404</a>
-      </button>
+      <nav>
+        <a href="/notFound">404</a>
+      </nav>
   </li>
   <li>
-    <button class="clear">
-            <a routerLink="/people/person-details" routerLinkActive="route-other-module">Person Details</a>
-    </button>
+    <nav>
+        <a routerLink="/people/person-details" routerLinkActive="route-other-module">Person Details</a>
+    </nav>
 </li>
 </ul>
 <!--router-outlet busca el componente asociado la ruta que tengamos en ese momento-->

@@ -302,14 +302,22 @@
     color: #ccc;
     cursor: auto;
   }
-  .route-selected {
+  .route-selected-home {
     font-weight: bold;
+    color: white !important;
     background-color:red;
+  }
+  .route-selected-about {
+    font-weight: bold;
+    color: black !important;
+    background-color:yellow;
   }
 
   .route-other-module{
     font-weight: bold;
     background-color:green;
     color: white !important;
-    opacity: 50%;
+  }
+  li {
+    margin-top: 12px;
   }

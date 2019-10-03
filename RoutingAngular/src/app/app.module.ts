@@ -7,8 +7,7 @@ import { AboutComponent } from './about/about.component';
 //importamos el modulo de rutas
 import { RouterModule, Routes } from "@angular/router";
 import { NotFoundComponent } from './not-found/not-found.component';
-//llamamos a un componente que se encuentra en otro modulo y al modulo e siS
-import { PersonDetailsComponent } from './people/person-details/person-details.component';
+//modulo con su propio modulo de rutas
 import { PeopleModule } from './people/people.module';
 
 //Registramos todas las rutas , es importante er orden ya que defiene la prioridad
@@ -19,7 +18,6 @@ const routes: Routes =
   {path:'home', component:HomeComponent},
   {path:'about', component:AboutComponent},
   {path:'notFound', component:NotFoundComponent},
-  {path:'people/person-details', component: PersonDetailsComponent},
   //cualquier parametro redirecionamos al raiz o donde nosotros queramos especificando en el redirect
   {path:'**', redirectTo: '/notFound', pathMatch:'full'}
 ];
@@ -33,9 +31,11 @@ const routes: Routes =
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes),
-    //importamos el module People para que el routlinck del componente pueda llamarlo
-    PeopleModule
+    //importamos el module People para que el routlinck del componente pueda llamarlo , 
+    // este modulo tiene su propio modulo de rutas
+    PeopleModule,
+    //si existen modulos de rutas hijos el ForRoot debe ser el ultimo
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
