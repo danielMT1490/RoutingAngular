@@ -2,8 +2,10 @@
     <!--| async es la manera de suscribirse a un observable desde el template-->
     <li *ngFor="let person of peopleServices.getPeople() | async">
         <!--tenemos dos tipos de formar la ruta-->
-        <a [routerLink]="['/people', person.id]">{{person.id}} </a>
-        <a routerLink="/people/{{person.id}}">{{person.name}}</a>        
+        <nav>
+            <a [routerLink]="['/people', person.id]">{{person.id}} </a>
+            <a routerLink="/people/{{person.id}}">{{person.name}}</a>
+        </nav>              
     </li>
 </ul>
 

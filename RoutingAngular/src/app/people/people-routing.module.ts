@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { PersonDetailsComponent } from './person-details/person-details.component';
 import { PeopleListComponent } from './people-list/people-list.component';
+import { PeopleDataResolverService } from './services/people-data-resolver.service';
 
 //registramos las rutas de los componentes del modulo 
 const routes : Routes = [
@@ -11,7 +12,21 @@ const routes : Routes = [
     {   path:'people', 
         component: PeopleListComponent, 
         children:[
-            { path:':personId', component: PersonDetailsComponent}
+            { 
+                path:':personId', 
+                component: PersonDetailsComponent,
+                //definimos que nos resuelva el parametro para el componente
+                resolve: 
+                { 
+                    person : PeopleDataResolverService,
+                    logperson : PeopleDataResolverService
+                },
+                //data es para añadir datos directamente , por ejemplo configuracion, son datos estáticos
+                data : 
+                { 
+                    showDetails : true 
+                }
+            }
         ]
     }
 ];

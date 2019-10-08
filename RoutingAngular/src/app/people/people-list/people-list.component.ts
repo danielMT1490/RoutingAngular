@@ -14,7 +14,7 @@ export class PeopleListComponent implements OnInit, OnDestroy {
   }
   //los componentes se destruyen cuando es llamado un comopente de su mismo nivel 
   ngOnDestroy(): void {
-    console.log('destruimos componente');
+    console.log('person list destroy');
   }
 
 }

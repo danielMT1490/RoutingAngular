@@ -6,7 +6,8 @@ import { of , Observable} from 'rxjs';
 })
 
 export class PeopleService {
-  people = [
+  people = 
+  [
     {
       id: 1,
       name: 'Pepe'

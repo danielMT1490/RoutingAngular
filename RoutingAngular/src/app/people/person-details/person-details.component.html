@@ -1,3 +1,5 @@
-<p>
+<p *ngIf="showDetails">
     {{person | json}}
 </p>
+<!--como la clase location es publica podemos llamarla desde el teamplate-->
+<button (click)="location.back()">Go back!!</button>
