@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { PeopleService } from '../services/people.service';
 import { ActivatedRoute } from '@angular/router';
 //nos permite anidar observables
@@ -7,7 +7,8 @@ import { switchMap } from 'rxjs/operators';
 @Component({
   selector: 'app-person-details',
   templateUrl: './person-details.component.html',
-  styleUrls: ['./person-details.component.scss']
+  styleUrls: ['./person-details.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class PersonDetailsComponent implements OnInit {
@@ -26,11 +27,13 @@ export class PersonDetailsComponent implements OnInit {
       .pipe(//el + castea un string en number
         switchMap(params => this.peopleService.getPersonById(+params.personId))
       )
-      .subscribe(personService=> 
+      .subscribe(person => 
       {
-        console.log(personService);
-        this.person = personService;
+        console.log(person);
+        this.person = person;
       });
+      //Pasando el console log a un observable los mostramos
+      this.activaroute.queryParams.subscribe(console.log);
   }
 
 

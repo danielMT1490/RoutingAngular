@@ -15,9 +15,10 @@ export class PeopleService {
       id:2,
       name:'Carlos'
     }
-  ]
+  ];
+
   //usamos any cuando no sabemos el tipo
-  getPersonById(id: number): Observable<any>{
-    return of(this.people.find(x => x.id = id));
+  getPersonById(id: number) {
+    return of(this.people.find(x => x.id == id));
   }
 }
