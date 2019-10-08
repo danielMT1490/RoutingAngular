@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { PeopleService } from '../services/people.service';
 
 @Component({
   selector: 'app-people-list',
   templateUrl: './people-list.component.html',
   styleUrls: ['./people-list.component.scss']
 })
-export class PeopleListComponent implements OnInit {
+export class PeopleListComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  constructor(public peopleServices: PeopleService) { }
 
   ngOnInit() {
+  }
+  //los componentes se destruyen cuando es llamado un comopente de su mismo nivel 
+  ngOnDestroy(): void {
+    console.log('destruimos componente');
   }
 
 }

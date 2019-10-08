@@ -1,1 +1,12 @@
-<p>people-list works!</p>
+<ul>
+    <!--| async es la manera de suscribirse a un observable desde el template-->
+    <li *ngFor="let person of peopleServices.getPeople() | async">
+        <!--tenemos dos tipos de formar la ruta-->
+        <a [routerLink]="['/people', person.id]">{{person.id}} </a>
+        <a routerLink="/people/{{person.id}}">{{person.name}}</a>        
+    </li>
+</ul>
+
+<!--llamamos al componente que se debe mostrar cuando se invoque la ruta hija-->
+<router-outlet></router-outlet>
+

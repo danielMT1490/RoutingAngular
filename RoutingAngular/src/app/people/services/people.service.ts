@@ -18,7 +18,13 @@ export class PeopleService {
   ];
 
   //usamos any cuando no sabemos el tipo
-  getPersonById(id: number) {
+  getPersonById(id: number): Observable<any>
+  {
     return of(this.people.find(x => x.id == id));
+  }
+
+  getPeople(): Observable<any>
+  {
+    return of(this.people);
   }
 }
