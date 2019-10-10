@@ -313,11 +313,30 @@
     background-color:yellow;
   }
 
-  .route-other-module{
+  .route-people-module{
     font-weight: bold;
     background-color:green;
     color: white !important;
   }
+
+  .route-contacts-module{
+    font-weight: bold;
+    background-color:burlywood;
+    color: black !important;
+  }
+
   li {
     margin-top: 12px;
+  }
+
+  .logIn{
+    background-color: green;
+  }
+
+  .logOut{
+    background-color: red;
+  }
+
+  div{
+    margin-left: 10px;
   }

@@ -9,7 +9,8 @@ const routes : Routes = [
     { path:'people/person-details', component: PersonDetailsComponent},
     //{path:'people/:personId', component: PersonDetailsComponent},
     //declaramos una hija ruta para que el componenete list no se destruya
-    {   path:'people', 
+    //dejamos path empty por que hemos echo una easy load en el app-module
+    {   path:'', 
         component: PeopleListComponent, 
         children:[
             { 

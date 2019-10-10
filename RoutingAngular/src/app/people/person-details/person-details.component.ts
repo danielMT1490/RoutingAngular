@@ -76,5 +76,13 @@ export class PersonDetailsComponent implements OnInit , OnDestroy{
     this.onDestroy.complete();
   }
 
+  //con el navigate podemos redirecionar a cualquiera de las rutas registras
+  //relative route hace que no se vaya al root
+  goBack(){
+    this.router.navigate(['../'],{relativeTo: this.activaroute});
+    //otra forma 
+    //this.router.navigateByUrl('../',{relativeTo: this.activaroute});
+  }
+
 
 }

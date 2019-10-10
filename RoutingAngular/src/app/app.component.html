@@ -1,5 +1,14 @@
-<h1>Router demo</h1>
-<ul>
+<div style="display: -webkit-inline-box;">
+  <h1>Router demo</h1>
+  <!--Gracias a nuestro servicio podemos loggarnos y mostrar el boton adecuado-->
+  <div *ngIf="authService.isLoggedIn() === false">
+    <button class="logIn" (click)="authService.logIn()">Log In</button> 
+  </div>
+  <div *ngIf="authService.isLoggedIn()">
+    <button class="logOut" (click)="authService.logOut()">Log Out</button>
+  </div>
+</div>
+<ul *ngIf="authService.isLoggedIn()">
   <li>
       <button class="clear">
               <a href="/">Raíz recarga la página</a>
@@ -24,9 +33,14 @@
   </li>
   <li>
     <nav>
-        <a routerLink="/people" routerLinkActive="route-other-module">Person List</a>
+        <a routerLink="/people" routerLinkActive="route-people-module">Person List</a>
     </nav>
-</li>
+  </li>
+  <li>
+    <nav>
+        <a routerLink="/contacts" routerLinkActive="route-contacts-module">Contacts Module</a>
+    </nav>
+  </li>
 </ul>
 <!--router-outlet busca el componente asociado la ruta que tengamos en ese momento-->
 <router-outlet></router-outlet>

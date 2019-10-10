@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { PeopleService } from '../services/people.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-people-list',
@@ -8,7 +9,11 @@ import { PeopleService } from '../services/people.service';
 })
 export class PeopleListComponent implements OnInit, OnDestroy {
 
-  constructor(public peopleServices: PeopleService) { }
+  constructor
+  (
+    public peopleServices: PeopleService,
+    public activeRoute: ActivatedRoute
+  ) { }
 
   ngOnInit() {
   }
