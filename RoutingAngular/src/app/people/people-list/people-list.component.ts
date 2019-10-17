@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PeopleListComponent implements OnInit, OnDestroy {
 
+  people;
   constructor
   (
     public peopleServices: PeopleService,
@@ -16,6 +17,12 @@ export class PeopleListComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
+    this.peopleServices.getPeople()
+    .subscribe(people => 
+      { 
+        this.people = people 
+      }
+    );
   }
   //los componentes se destruyen cuando es llamado un comopente de su mismo nivel 
   ngOnDestroy(): void {

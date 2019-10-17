@@ -12,6 +12,12 @@ import { AuthGuard } from './auth.guard';
 //modulo con su propio modulo de rutas
 //import { PeopleModule } from './people/people.module';
 
+//incluimos http en el servicio de people
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService }  from './in-memory-data.service';
+import { HttpClientModule } from "@angular/common/http";
+
+
 //Registramos todas las rutas , es importante er orden ya que defiene la prioridad
 const routes: Routes = 
 [
@@ -60,6 +66,12 @@ const routes: Routes =
     // este modulo tiene su propio modulo de rutas
     //lo hemos comentado por que lo hemos regitrado en la rut apara que no cargue el main.js
     //PeopleModule,
+
+    //incluimos el modulo de http y el mock de la api , lo integramos en este modulo por que es
+    //quien sirve los datos
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }),
 
     //si existen modulos de rutas hijos el ForRoot debe ser el ultimo
     //PreloadAllMOdules va cargando todos los modulos que se han registrado
